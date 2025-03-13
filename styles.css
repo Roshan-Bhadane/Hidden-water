@@ -1,0 +1,529 @@
+/* Mobile-first design system with focus on touch interactions */
+
+/* Base styles optimized for mobile */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size for better readability on mobile */
+    touch-action: manipulation; /* Improves touch response */
+}
+
+body {
+    background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 50%, #e0e7ff 100%);
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on iOS */
+}
+
+/* Container sizing for mobile-first */
+.container {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100%;
+}
+
+/* Mobile-optimized header */
+header {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.2);
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    max-width: 100%;
+    padding: 0 0.5rem;
+}
+
+/* Section styling optimized for mobile */
+section {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+/* Touch-optimized form elements */
+input, select, button {
+    transition: all 0.2s ease;
+    border-radius: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.75rem;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Larger touch targets for mobile */
+select {
+    background-image: linear-gradient(45deg, transparent 50%, #3b82f6 50%),
+                      linear-gradient(135deg, #3b82f6 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+                         calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 30px;
+    height: 3rem; /* Taller for better touch */
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile-optimized slider with increased size */
+input[type="range"] {
+    -webkit-appearance: none;
+    height: 8px; /* Increased from 6px back to 8px */
+    background: linear-gradient(to right, #3b82f6 0%, #60a5fa 100%);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    margin: 0.75rem 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px; /* Increased from 20px */
+    height: 24px; /* Increased from 20px */
+    background: #fff;
+    border: 2px solid #3b82f6; /* Thicker border */
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 24px; /* Increased from 20px */
+    height: 24px; /* Increased from 20px */
+    background: #fff;
+    border: 2px solid #3b82f6; /* Thicker border */
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
+}
+
+/* Mobile-optimized fact cards */
+.facts-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    margin: 0 -0.5rem;
+    padding-left: 0.5rem;
+}
+
+.fact-card {
+    flex: 0 0 auto;
+    width: 85%;
+    max-width: 260px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    scroll-snap-align: start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.fact-card h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #1e40af;
+}
+
+.fact-card p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #3b82f6;
+    margin: 0;
+}
+
+/* Mobile-optimized quiz options */
+.quiz-option {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(59, 130, 246, 0.1);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: left;
+    display: block;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    min-height: 3rem; /* Minimum height for touch */
+}
+
+.quiz-option.correct {
+    background: linear-gradient(to right, #dcfce7, #bbf7d0);
+    border-color: #22c55e;
+}
+
+.quiz-option.incorrect {
+    background: linear-gradient(to right, #fee2e2, #fecaca);
+    border-color: #ef4444;
+}
+
+/* Mobile-optimized video container */
+.aspect-w-16.aspect-h-9 {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.aspect-w-16.aspect-h-9 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+}
+
+/* Mobile-optimized buttons */
+button {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+    width: auto;
+    display: inline-block;
+    text-align: center;
+    min-height: 3rem; /* Minimum height for touch */
+    min-width: 120px; /* Minimum width for touch */
+    margin-top: 0.5rem;
+}
+
+button:active {
+    transform: scale(0.98);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Enhanced mobile-optimized footer */
+footer {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    text-align: center;
+    border-top: 4px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(255,255,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+footer h3 {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+footer h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #60a5fa;
+    border-radius: 2px;
+}
+
+footer p {
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+footer a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover, footer a:focus {
+    color: #93c5fd;
+}
+
+footer a:active {
+    transform: scale(0.95);
+}
+
+footer svg {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.3));
+}
+
+footer a:hover svg {
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+}
+
+footer .border-t {
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* Responsive footer adjustments */
+@media (min-width: 768px) {
+    footer {
+        text-align: left;
+    }
+    
+    footer h3::after {
+        left: 0;
+        transform: none;
+    }
+}
+
+/* Mobile-optimized results */
+#result, #quiz-result, #personalized-tips {
+    background: rgba(219, 234, 254, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-top: 0.75rem;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+#result {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #1e40af;
+}
+
+/* Mobile-optimized animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+    html {
+        font-size: 15px; /* Slightly smaller base font for very small screens */
+    }
+    
+    .fact-card {
+        width: 90%;
+    }
+    
+    section {
+        padding: 0.875rem;
+    }
+    
+    button {
+        width: 100%; /* Full width buttons on very small screens */
+    }
+}
+
+/* Tablet and larger adjustments */
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    
+    header {
+        padding: 1.5rem 1rem;
+    }
+    
+    header h1 {
+        font-size: 2.25rem;
+    }
+    
+    header p {
+        font-size: 1.125rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    section h2 {
+        font-size: 1.75rem;
+    }
+    
+    .fact-card {
+        width: 250px;
+    }
+    
+    button {
+        min-width: 150px;
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+    
+    header {
+        padding: 2rem;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    section {
+        padding: 2rem;
+    }
+}
+
+/* Ensure touch-friendly interactions */
+@media (hover: none) {
+    .fact-card:active {
+        transform: scale(0.98);
+    }
+    
+    .quiz-option:active {
+        transform: scale(0.98);
+    }
+    
+    button:hover {
+        transform: none;
+    }
+}
+
+/* Accessibility improvements */
+:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Fixed position scroll indicator for facts */
+.scroll-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.scroll-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #CBD5E0;
+    margin: 0 3px;
+}
+
+.scroll-dot.active {
+    background-color: #3B82F6;
+}
+
+/* Mobile-optimized list styling */
+ul {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile-optimized loading states */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin: -12px 0 0 -12px;
+    border: 3px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    border-top-color: #3b82f6;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

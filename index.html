@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Discover the hidden water footprint behind everyday items and learn how to conserve water through interactive calculators and quizzes.">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Hidden Water: The Secret Behind Everyday Items!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-blue-50 font-sans">
+    <header class="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-5 px-3">
+        <div class="container mx-auto">
+            <h1 class="text-2xl sm:text-4xl font-bold text-center mb-2">Hidden Water:<br>The Secret Behind Everyday Items!</h1>
+            <p class="text-base sm:text-lg text-center max-w-3xl mx-auto">Discover how much water it takes to make everyday items</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-3 py-4">
+        <!-- Water Footprint Calculator Section -->
+        <section id="calculator" class="bg-white rounded-lg shadow-lg p-4 mb-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-blue-700 mb-3">Water Footprint Calculator</h2>
+            <div class="calculator-container">
+                <div class="mb-3">
+                    <label for="product" class="block text-gray-700 mb-2 font-medium">Select Product:</label>
+                    <select id="product" class="w-full p-3 border rounded text-base">
+                        <!-- Clothing & Fashion -->
+                        <optgroup label="Clothing & Fashion">
+                            <option value="tshirt">T-Shirt</option>
+                            <option value="jeans">Jeans</option>
+                            <option value="sneakers">Sneakers (Pair)</option>
+                            <option value="leather_shoes">Leather Shoes</option>
+                            <option value="cotton_dress">Cotton Dress</option>
+                        </optgroup>
+                        
+                        <!-- Food & Drinks -->
+                        <optgroup label="Food & Drinks">
+                            <option value="burger">Burger (Hamburger Meat)</option>
+                            <option value="pizza">Pizza (Cheese & Meat)</option>
+                            <option value="chocolate">Chocolate Bar (100g)</option>
+                            <option value="egg">Egg</option>
+                            <option value="milk">Milk (1 liter)</option>
+                            <option value="cheese">Cheese (1 kg)</option>
+                            <option value="chicken">Chicken (1 kg)</option>
+                            <option value="rice">Rice (1 kg)</option>
+                            <option value="coffee">Coffee (1 cup)</option>
+                            <option value="tea">Tea (1 cup)</option>
+                        </optgroup>
+                        
+                        <!-- Technology & Electronics -->
+                        <optgroup label="Technology & Electronics">
+                            <option value="smartphone">Smartphone</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="desktop">Desktop Computer</option>
+                            <option value="gaming_console">Gaming Console</option>
+                        </optgroup>
+                        
+                        <!-- Household Items & Miscellaneous -->
+                        <optgroup label="Household Items & Miscellaneous">
+                            <option value="cotton_pillow">Cotton Pillow</option>
+                            <option value="bed_sheet">Bed Sheet (Cotton)</option>
+                            <option value="car">Car (Manufacturing)</option>
+                            <option value="bicycle">Bicycle</option>
+                            <option value="toilet_paper">Toilet Paper (1 Roll)</option>
+                            <option value="paper">Paper (1 Sheet A4)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="quantity" class="block text-gray-700 mb-2 font-medium">Quantity: <span id="quantityValue">1</span></label>
+                    <div class="px-1">
+                        <input type="range" id="quantity" min="1" max="10" value="1" step="1" class="w-full">
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-500 px-1 mt-1">
+                        <span>1</span>
+                        <span>5</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div id="result" class="text-lg font-bold text-blue-600 mt-3 p-3 rounded-lg"></div>
+            </div>
+        </section>
+
+        <!-- Product Info Section - New section -->
+        <section id="product-info" class="bg-white rounded-lg shadow-lg p-4 mb-4 hidden">
+            <h2 class="text-xl sm:text-2xl font-bold text-blue-700 mb-3">Did You Know?</h2>
+            <div id="product-details" class="prose prose-blue max-w-none">
+                <!-- Product details will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Hidden Water Facts Section -->
+        <section id="facts" class="bg-white rounded-lg shadow-lg p-4 mb-4 overflow-hidden">
+            <h2 class="text-xl sm:text-2xl font-bold text-blue-700 mb-2">Hidden Water Facts</h2>
+            <p class="text-sm text-gray-600 mb-3">← Swipe to explore →</p>
+            <div class="relative">
+                <div class="facts-container overflow-x-auto hide-scrollbar flex pb-2">
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Pair of Jeans</h3>
+                        <p>7,600 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Car Tires (Set of 4)</h3>
+                        <p>8,500 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Plastic Water Bottle</h3>
+                        <p>5 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Wool Sweater</h3>
+                        <p>10,000 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Gold Ring (10g)</h3>
+                        <p>100,000 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Single Sheet of Paper</h3>
+                        <p>10 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Cotton Tote Bag</h3>
+                        <p>2,500 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Cigarettes (Pack)</h3>
+                        <p>3,700 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Almonds (1kg)</h3>
+                        <p>16,000 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Avocado</h3>
+                        <p>600 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Shoes</h3>
+                        <p>8,000 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Car</h3>
+                        <p>400,000 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Chocolate Bar</h3>
+                        <p>1,700 liters</p>
+                    </div>
+                    <div class="fact-card flex-shrink-0 p-4 border rounded-lg bg-blue-50">
+                        <h3 class="font-bold mb-1">Cotton Pillow</h3>
+                        <p>2,000 liters</p>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-dot active"></div>
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section id="video" class="bg-white rounded-lg shadow-lg p-4 mb-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-blue-700 mb-3">Where Does Hidden Water Come From?</h2>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe class="w-full" src="https://www.youtube.com/embed/On9WRrFHVjY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Water Challenge Quiz Section -->
+        <section id="quiz" class="bg-white rounded-lg shadow-lg p-4 mb-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-blue-700 mb-3">Take the Water Challenge!</h2>
+            <div id="quiz-container">
+                <div id="question" class="text-lg mb-3 font-medium"></div>
+                <div id="options" class="space-y-2"></div>
+                <button id="next-question" class="mt-3 bg-blue-600 text-white px-5 py-3 rounded hover:bg-blue-700 w-full sm:w-auto">Next Question</button>
+                <div id="quiz-result" class="mt-3 hidden"></div>
+            </div>
+        </section>
+
+        <!-- Water Saving Tips Section -->
+        <section id="tips" class="bg-white rounded-lg shadow-lg p-4 mb-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-blue-700 mb-3">Personalized Water-Saving Tips</h2>
+            <div class="mb-3">
+                <label for="preference" class="block text-gray-700 mb-2 font-medium">What do you buy the most?</label>
+                <select id="preference" class="w-full p-3 border rounded text-base">
+                    <option value="clothes">Clothes</option>
+                    <option value="food">Fast Food</option>
+                    <option value="electronics">Electronics</option>
+                </select>
+            </div>
+            <div id="personalized-tips" class="mt-3 p-3 rounded-lg"></div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-8 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row md:justify-between items-center">
+                <!-- Logo and copyright section -->
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Hidden Water Project</h3>
+                    <p class="text-blue-200 text-sm">© 2025 All Rights Reserved</p>
+                </div>
+                
+                <!-- Developer info section -->
+                <div class="text-center mb-6 md:mb-0">
+                    <p class="text-sm text-blue-100 mb-1">Developed with 💧 by</p>
+                    <p class="font-semibold text-base">ROSHAN CHANDRAKANT BHADANE</p>
+                </div>
+                
+                <!-- Social links section -->
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="text-sm text-blue-100 mb-3">Connect with me</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/roshan_bhadane_27?igsh=M2xpbzFodHNqbHoy" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="bg-white bg-opacity-10 hover:bg-opacity-20 p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/roshan-bhadane?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="bg-white bg-opacity-10 hover:bg-opacity-20 p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-blue-700 text-center">
+                <p class="text-blue-200 text-sm">Let's make every drop count!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Add scroll indicator functionality for facts
+        document.addEventListener('DOMContentLoaded', () => {
+            const factsContainer = document.querySelector('.facts-container');
+            const scrollDots = document.querySelectorAll('.scroll-dot');
+            
+            if (factsContainer && scrollDots.length) {
+                factsContainer.addEventListener('scroll', () => {
+                    const scrollPercentage = factsContainer.scrollLeft / (factsContainer.scrollWidth - factsContainer.clientWidth);
+                    const activeDotIndex = Math.min(
+                        Math.floor(scrollPercentage * scrollDots.length),
+                        scrollDots.length - 1
+                    );
+                    
+                    scrollDots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === activeDotIndex);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
